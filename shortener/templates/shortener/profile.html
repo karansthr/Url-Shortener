@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+{% endblock styles %}
+
+
+{% block title %}
+  {{ page_title }} // {{ block.super }}
+{% endblock title %}
+
+{% block content %}
+    <br>
+{% if links %}
+    <div class="row justify-content-center align-items-center">
+    <div class="col-lg-10 col-md-10">
+    <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col" style="color:black">#</th>
+              <th scope="col" style="color:black">URL</th>
+              <th scope="col" style="color:black">Shortened</th>
+              <th scope="col" style="color:black">Hits</th>
+              <th scope="col" style="color:red">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in links %}
+                <tr>
+                    <th  scope="row" style="color:green">{{ forloop.counter }}</th>
+                    <td class="w"><a style="color:black" href="{% url 'shortener:redirector' i.shortened %}">{{ i.link | truncatechars:110 }}</a></td>
+                    <td class="w"><a style="color:black" href="{% url 'shortener:redirector' i.shortened %}">{{ i.shortened }}</a></td>
+                    <td class="w" style="color:black"> <p style="text-align: center">{{ i.hits }}</p></td>
+                    <td scope="row" style="color:black">
+                      <button type="button" class="btn btn-outline-danger"
+                      onClick="$('#deletemodalform').attr('action', '{% url 'shortener:url_delete' i.shortened %}');"
+                      data-toggle="modal" data-target="#deleteModal">X</button>
+                    </td>
+                </tr>
+              {% endfor %}
+          </tbody>
+        </table>
+
+         </div>
+    </div>
+{% else %}
+
+    <div  class="row h-100 justify-content-center align-items-center">
+        <p class="col-md-10 lead mt-3 text-center"> No Shortened URLs, Add some ? <a href="/">Yes</a></span></p>
+    </div>
+
+{% endif   %}
+
+{% include 'shortener/confirm_modal.html' %}
+{% endblock %}
+
+
+
+
+

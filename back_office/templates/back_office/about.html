@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  {{ page_title }} // {{ block.super }}
+{% endblock title %}
+
+{% block content %}
+    <div class="alert primary" style="border:None"><div class="text-center"><h5>ABOUT</h5></div></div>
+
+    <div class="row justify-content-center align-items-center">
+    <br>
+    <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+    <div class="row align-center ">
+    <div class="LI-profile-badge col large-10 small-10 medium-10"  data-version="v1"
+    data-size="large" data-locale="en_US" data-type="vertical" data-theme="light"
+    data-vanity="karansthr"><a class="LI-simple-link"
+    href='https://in.linkedin.com/in/karansthr?trk=profile-badge'>Karan Suthar</a>
+    </div>
+    </div>
+    </div>
+{%  endblock %}

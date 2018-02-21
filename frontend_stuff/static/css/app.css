@@ -1,0 +1,15 @@
+html, body {  width: 100%;  height: 100%;  margin: 0; }
+body{  align-items: center;     padding: 70px 0; }
+nav{  background-color: white;  }
+.container,nav{  font-family: 'Nunito Sans', cursive , Sans-Serif;  font-weight: 100;  }
+.container{ height: 80%;}
+.form-control-label { color:black;}
+.asteriskField{  display:None;  }
+{% block styles %}{% endblock %}
+@media (min-device-width : 600px)  {  }
+
+.btn-gplus{  color: black;  }
+.btn-gplus:hover{  color:black;  }
+.btn:hover{  box-shadow: 0 14px 26px -12px rgba(0, 0, 0, 0.2), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.1);  }
+.navbar {  box-shadow: 0 10px 20px -24px rgba(0, 0, 0, 0.2), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.1);  }
+.mce-fullscreen {  z-index: 1050!important;  }

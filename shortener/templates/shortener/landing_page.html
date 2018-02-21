@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+  {{ page_title }} // {{ block.super }}
+{% endblock title %}
+
+{% block styles %}{% endblock %}
+{% block content %}
+            <div id="divA" class="row h-100 justify-content-center align-items-center">
+                <form  id='url_shortener_form' class="col-lg-6 col-md-7 col-sm-8" method='POST' novalidate>
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit" class="btn btn-outline-primary">Submit</button>
+                </form>
+            </div>
+
+            <div id="divB" class="row h-100 justify-content-center align-items-center" style="display: none">
+                <div class="col-sm-4 mx-auto">
+                    <div class="input-group">
+                        <input type="text" id="foo" class="form-control btn-outline-primary" value="" readonly>
+                        <span class="input-group-btn btn-outline-primary">
+                        <button id="copy-button" class="btn btn-outline-primary" data-clipboard-target="#foo" type="button"   data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Copied!">Copy</button>
+                        </span>
+                    </div>
+                    <p class="lead mt-3">Have another link to shorten? <span class="ml-4"><a href="/">Yes</a></span></p>
+                </div>
+            </div>
+
+{% endblock %}
+
+
+{% block javascripts %}{% endblock %}

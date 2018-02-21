@@ -1,0 +1,26 @@
+<nav class="navbar fixed-top  navbar-expand-lg navbar-light navbar-fixed-bottom">
+    <a  class="navbar-brand" href="/"><strong style="font-weight:600;color: green">YooURL</strong></a>
+    <button class="navbar-toggler mt-1" type="button" data-toggle="collapse" data-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars"></i>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarNav">
+        <ul  class="navbar-nav ml-auto">
+           {% if not request.user.is_authenticated %}
+                <li class="nav-item py-0"><a data-no-turbolink href="/doc" class="nav-link">Create Doc</a></li>
+                <li class="nav-item py-0"><a href="/register" class="nav-link">Sign Up</a></li>
+                <li class="nav-item py-0"><a href="/login" class="nav-link">Sign In</a></li>
+                <li class="nav-item py-0"><a href="/about" class="nav-link">About</a></li>
+                <li class="nav-item py-0"><a href="/contact" class="nav-link">Contact</a></li>
+            {% else %}
+                <li class="nav-item py-0"><a data-no-turbolink href="/doc" class="nav-link">Create Doc</a></li>
+                <li class="nav-item py-0"><a href="/profile" class="nav-link">Profile</a></li>
+                <li class="nav-item py-0"><a href="/about" class="nav-link">About</a></li>
+                <li class="nav-item py-0"><a href="/contact" class="nav-link">Contact</a></li>
+                <li class="nav-item py-0"><a href="/logout" class="nav-link">Log Out</a></li>
+            {% endif %}
+
+        </ul>
+    </div>
+
+</nav>
+
