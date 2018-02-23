@@ -20,8 +20,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),
     path('doc/', include('docs.urls')),
+    path('auth/', include('social_django.urls', namespace='social')),
+    path('api/shortener/', include('shortener.api.urls', namespace='URL-api')),
     path('', include('back_office.urls')),
     path('', include('accounts.urls')),
     path('', include('shortener.urls')),
-
 ]

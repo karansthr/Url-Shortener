@@ -54,7 +54,7 @@ class URLDeleteView(DeleteView):
 
     def get_object(self):
         url = get_object_or_404(models.URL, shortened=self.kwargs['shortened'])
-        if not url.user == self.request.user:
+        if url.user != self.request.user:
             raise Http404
         return url
 

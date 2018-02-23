@@ -3,19 +3,16 @@
 {% block content %}
 
 
-    <div class="row h-100  justify-content-center align-items-center">
-
-        <form class="col-lg-4 mx-auto" method='POST'>
-
-                        <br><br>
-
-            {% csrf_token %}
-            {{ form|crispy }}
-            <button type="submit" class="btn btn-primary">Sign Up</button>
-
-        </form>
-
-    </div>
-
-
+<div class="row h-100  justify-content-center align-items-center">
+    <form class="col-lg-4 mx-auto" method='POST'>
+        <a style="border-color: #99cc99" class="form-control mx-auto btn btn-social btn-gplus"
+            href="{% url 'social:begin' 'google-oauth2' %}">
+            <span class="fa fa-google"></span>&nbsp;&nbsp;Sign Up with Google
+        </a>
+        <br><br>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+</div>
 {% endblock %}

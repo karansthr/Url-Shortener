@@ -13,6 +13,6 @@ urlpatterns = [
         r'^(?P<url>[\w]+)/edit$',
         views.DocUpdateView.as_view(),
         name="doc_update"),
-    re_path(
-        r'^(?P<url>[\w]+)/delete', views.DocDeleteView, name="doc_delete"),
+    re_path(r'^(?P<url>[\w]+)/delete', views.DocDeleteView.as_view(),
+            name="doc_delete"),
 ]

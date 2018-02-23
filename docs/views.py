@@ -1,11 +1,13 @@
 from django.views.generic.edit import DeleteView, UpdateView
 from django.views.generic import DetailView, FormView
 from django.shortcuts import get_object_or_404, reverse, render, redirect
-from back_office.mixins import PageTitleMixin, ContextMixin, LoginRequiredMixin
+from django.http import Http404
+
+from back_office.mixins import ContextMixin, LoginRequiredMixin
 from shortener.utils import encode
+from shortener.models import URL
 from . import forms
 from . import models
-from shortener.models import URL
 
 
 class DocCreateView(ContextMixin, FormView):
@@ -32,18 +34,31 @@ class DocCreateView(ContextMixin, FormView):
             return self.form_invalid(form)
 
     def get(self, request):
-        context = {"form": forms.DocForm(),'page_title':'Create Awesome Doc'}
+        context = {"form": forms.DocForm(), 'page_title': 'Create Awesome Doc'}
         return render(request, "docs/doc_form.html", context)
 
 
 class DocDeleteView(DeleteView):
-    pass
+    model = models.Doc
+    success_url = '/'
+
+    def get(self, request, *args, **kwargs):
+        raise Http404
+
+    def get_object(self):
+        url_arg = self.kwargs['url']
+        url = get_object_or_404(URL, shortened=url_arg)
+        instance = get_object_or_404(models.Doc, url=url)
+        if url.user != self.request.user:
+            raise Http404
+        url.delete()
+        return instance
 
 
-class DocDetailView(PageTitleMixin, DetailView):
-    page_title = 'Doc'
+class DocDetailView(ContextMixin, DetailView):
     model = models.Doc
     context_object_name = 'doc'
+    context = {'page_title': 'Doc'}
 
     def get_object(self, queryset=None):
         url_arg = self.kwargs['url']
@@ -53,11 +68,13 @@ class DocDetailView(PageTitleMixin, DetailView):
 
 
 class DocUpdateView(LoginRequiredMixin, UpdateView):
-    form_class = forms.DocForm
     model = models.Doc
+    fields = ['title', 'content']
 
     def get_object(self, queryset=None):
         url_arg = self.kwargs['url']
         url = get_object_or_404(URL, shortened=url_arg)
         instance = get_object_or_404(models.Doc, url=url)
+        if url.user != self.request.user:
+            raise Http404
         return instance

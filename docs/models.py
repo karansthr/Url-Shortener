@@ -6,7 +6,7 @@ from shortener.models import URL
 
 
 class Doc(models.Model):
-    url = models.ForeignKey(URL, null=True, on_delete=models.CASCADE)
+    url = models.ForeignKey(URL, on_delete=models.CASCADE)
     title = models.CharField(max_length=120, null=True, blank=True)
     content = HTMLField('Content')
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)

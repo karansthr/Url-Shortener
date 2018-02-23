@@ -6,8 +6,11 @@
 {% endblock title %}
 
 {% block content %}
+    <div class="alert primary" style="border:None"><div class="text-center"><h5>CONTACT</h5></div></div>
+
     <div class="row row h-100 justify-content-center align-items-center">
         <form class="col-lg-6" method='POST'>
+
             {% csrf_token %}
             {{ form|crispy }}
     <button type="submit" class="btn btn-primary">Submit</button>

@@ -35,6 +35,6 @@ class LogoutView(RedirectView):
 
 class RegisterView(CreateView, PageTitleMixin):
     form_class = forms.RegistrationForm
-    success_url = '/'
+    success_url = '/login'
     template_name = 'accounts/registration_form.html'
     page_title = 'Registration'
