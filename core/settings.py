@@ -43,7 +43,8 @@ INTERNAL_APPS = (
 THIRD_PARTY_APPS = (
     'crispy_forms',
     'tinymce',
-    'rest_framework'
+    'rest_framework',
+    'social_django',
 )
 
 PROJECT_APPS = ('accounts', 'back_office', 'docs', 'shortener')
@@ -146,10 +147,11 @@ MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend_stuff/static')]
 
-STATIC_ROOT = os.path.join(BASE_DIR, "../static_cdn")
+STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn")
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "../media_cdn")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media_cdn")
 
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 TINYMCE_DEFAULT_CONFIG = {
     'height': 360,

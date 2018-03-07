@@ -7,7 +7,7 @@ class URL(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, null=True, on_delete=models.CASCADE)
     link = models.CharField(max_length=1000)
-    shortened = models.CharField(max_length=20, default='', primary_key=True)
+    shortened = models.CharField(max_length=20, null=True, blank=True)
     hits = models.IntegerField(default=0, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
