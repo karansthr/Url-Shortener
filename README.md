@@ -8,7 +8,7 @@ Run in terminal
 To shorten a url
 ``` shrt [link]  ```
 
-For custom short url like https://yoourl.herokuapp.com/[custom_shortname] 
+For custom short url like yoourl.herokuapp.com/[custom_shortname] <br>
 ``` shrt [link] -c [custom_shortname] ```
 
 
