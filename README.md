@@ -2,7 +2,15 @@
 A simple URL shortener | Create Doc with short URL | Python Package CLI
 
 ### To install python package 
-Run in terminal  ``` pip install urlshortener-cli  ```
+Run in terminal
+``` pip install urlshortener-cli  ```
+
+To shorten a url
+``` shrt [link]  ```
+
+For custom short url like https://yoourl.herokuapp.com/[custom_shortname] 
+``` shrt [link] -c [custom_shortname] ```
+
 
 ### Installation guide
 
