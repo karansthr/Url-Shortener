@@ -11,6 +11,9 @@ To shorten a url
 For custom short url like yoourl.herokuapp.com/[custom_shortname] <br>
 ``` shrt [link] -c [custom_shortname] ```
 
+If your url has escaped characters just wrap it with quotes:
+``` shrt "[link]" -c [custom_shortname] ```
+
 
 ### Installation guide
 
