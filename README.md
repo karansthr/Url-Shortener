@@ -3,16 +3,24 @@ A simple URL shortener | Create Doc with short URL | Python Package CLI
 
 ### To install python package 
 Run in terminal
-``` pip install urlshortener-cli  ```
+``` 
+pip install urlshortener-cli  
+```
 
 To shorten a url
-``` shrt [link]  ```
+``` 
+shrt [link]  
+```
 
 For custom short url like yoourl.herokuapp.com/[custom_shortname] <br>
-``` shrt [link] -c [custom_shortname] ```
+``` 
+shrt [link] -c [custom_shortname] 
+```
 
 If your url has escaped characters just wrap it with quotes:
-``` shrt "[link]" -c [custom_shortname] ```
+``` 
+shrt "[link]" -c [custom_shortname] 
+```
 
 
 ### Installation guide
