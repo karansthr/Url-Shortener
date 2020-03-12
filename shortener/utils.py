@@ -5,9 +5,7 @@ from .models import URL
 
 
 def encode(custom=None):
-    encoded = ''.join([
-        random.choice(string.ascii_letters + string.digits) for n in range(6)
-    ])
+    encoded = ''.join(random.choice(string.ascii_letters + string.digits) for n in range(6))
     if custom:
         workon = ''.join(custom.split())
         encoded = workon if not URL.objects.filter(
