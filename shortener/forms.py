@@ -36,7 +36,7 @@ class URLForm(forms.ModelForm):
 
         try:
             val(link)
-        except ValidationError as e:
+        except ValidationError:
             raise forms.ValidationError("Please enter a valid URL")
 
         return link

@@ -33,7 +33,7 @@ class UrlCreateSerializer(serializers.ModelSerializer):
         try:
             val = URLValidator()
             val(link)
-        except serializers.ValidationError as e:
+        except serializers.ValidationError:
             raise serializers.ValidationError("Please enter a valid URL")
 
         return link
