@@ -13,7 +13,7 @@ setup(
         'console_scripts': ['shrt=shortener:main'],
     },
     install_requires=[
-        "requests==2.18.4",
+        "requests==2.20.0",
         "pyperclip==1.6.0",
     ],
     keywords="url shortener",
