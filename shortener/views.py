@@ -3,7 +3,6 @@ from django.views.generic.edit import DeleteView
 from django.views.generic.base import RedirectView
 from django.views.generic import TemplateView, ListView
 from django.db.models import F
-from django.contrib import messages
 from django.http import JsonResponse, Http404
 from django.views import View
 import simplejson
