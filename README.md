@@ -33,3 +33,4 @@ shrt "[link]" -c [custom_shortname]
 6) Run migration command ``` python manage.py runserver  ```
 7) Run the server ``` python manage.py migrate  ```
 
+
