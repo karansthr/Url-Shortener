@@ -14,7 +14,8 @@ from back_office.mixins import PageTitleMixin, ContextMixin, LoginRequiredMixin
 
 
 class ShortenerView(View):
-    def get(self, request):
+    @staticmethod
+    def get(request):
         raise Http404
 
     def post(self, request):
