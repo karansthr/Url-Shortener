@@ -25,7 +25,8 @@ class UrlCreateSerializer(serializers.ModelSerializer):
         instance = models.URL.objects.create(**validated_data)
         return instance
 
-    def validate_link(self, link):
+    @staticmethod
+    def validate_link(link):
         if link is None:
             raise serializers.ValidationError("Please enter a valid URL")
         link = 'http://' + link if link[:4] != 'http' else link
@@ -38,7 +39,8 @@ class UrlCreateSerializer(serializers.ModelSerializer):
 
         return link
 
-    def validate_suggestion(self, custom_short_link):
+    @staticmethod
+    def validate_suggestion(custom_short_link):
         if custom_short_link:
             if custom_short_link in [
                     'about', 'disclaimer', 'contact', 'sitemap.xml',
