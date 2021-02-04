@@ -6,11 +6,3 @@ enabled = true
 
   [analyzers.meta]
   runtime_version = "3.x.x"
-
-[[analyzers]]
-name = "javascript"
-enabled = true
-
-  [analyzers.meta]
-  ecma_version = "2020"
-  module_system = "commonjs"
